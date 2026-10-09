@@ -1,3 +1,3 @@
 # JavaScript
 Here javaScript code.
---autor : Joy Rajbongshi
+--author : Joy Rajbongshi
