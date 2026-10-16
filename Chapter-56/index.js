@@ -49,4 +49,4 @@ promise1.then ((message) => {
     
 }).catch((error) => {
     console.log("Error: " + error);
-})
+});
