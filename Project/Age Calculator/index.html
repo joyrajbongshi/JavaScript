@@ -1,201 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080d1c">
-    <meta name="description" content="Calculate your exact age, explore birthday insights, and discover your personal time statistics.">
-    <title>Age Calculator Pro | Joy Rajbongshi</title>
     <link rel="stylesheet" href="style.css">
+    <title>Age Calculator</title>
 </head>
 <body>
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
 
-    <header class="topbar">
-        <a class="brand" href="#" aria-label="Age Calculator Pro home">
-            <span class="brand-icon">⌘</span>
-            <span>Age<span class="brand-accent">Wise</span></span>
-            <span class="pro-badge">PRO</span>
-        </a>
-        <span class="header-note">
-            <span class="status-dot"></span> Free & private
-        </span>
-    </header>
-
-    <main class="page">
-        <section class="hero">
-            <div class="hero-badge">
-                <span>✦</span> YOUR TIME, BEAUTIFULLY MEASURED
+    <div class="container">
+        <div class="calculator">
+            <h1>Age Calculator</h1>
+            <div class="input-box">
+                <input type="date" id="date">
+                <button onclick="calculateAge()">Calculator</button>
             </div>
-            <h1>Every year tells a <span>story.</span></h1>
-            <p class="hero-description">
-                Discover your exact age, explore your birthday,
-                and see the little details that make your timeline unique.
-            </p>
-        </section>
-
-        <section class="main-card">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">LET'S FIND OUT</p>
-                    <h2>When were you born?</h2>
-                    <p class="muted">Enter your date of birth to get started.</p>
-                </div>
-                <div class="calendar-art" aria-hidden="true">▦</div>
-            </div>
-
-            <form id="ageForm" novalidate>
-                <label for="birthDate">Date of birth</label>
-                <div class="date-row">
-                    <span class="date-icon" aria-hidden="true">▦</span>
-                    <input type="date" id="birthDate" required>
-                </div>
-
-                <p id="message" class="message" role="status" aria-live="polite">
-                    Your date stays in your browser. No account needed.
-                </p>
-
-                <div class="button-row">
-                    <button type="submit" class="btn btn-primary">
-                        Calculate my age <span aria-hidden="true">→</span>
-                    </button>
-                    <button type="button" id="resetBtn" class="btn btn-secondary">
-                        Reset
-                    </button>
-                </div>
-            </form>
-        </section>
-
-        <section id="results" class="results" hidden>
-            <div class="results-heading">
-                <div>
-                    <p class="eyebrow">YOUR PERSONAL TIMELINE</p>
-                    <h2>Your age, <span>unpacked.</span></h2>
-                </div>
-                <button id="copyBtn" type="button" class="btn btn-secondary">
-                    Copy results
-                </button>
-            </div>
-
-            <div class="age-grid">
-                <article class="age-card age-years">
-                    <span class="card-icon">✦</span>
-                    <p>YEARS</p>
-                    <strong id="years">0</strong>
-                    <span class="card-caption">Years lived</span>
-                </article>
-
-                <article class="age-card age-months">
-                    <span class="card-icon">◷</span>
-                    <p>MONTHS</p>
-                    <strong id="months">0</strong>
-                    <span class="card-caption">Additional months</span>
-                </article>
-
-                <article class="age-card age-days">
-                    <span class="card-icon">☀</span>
-                    <p>DAYS</p>
-                    <strong id="days">0</strong>
-                    <span class="card-caption">Additional days</span>
-                </article>
-            </div>
-
-            <article class="birthday-card">
-                <div class="birthday-icon" aria-hidden="true">🎂</div>
-                <div class="birthday-info">
-                    <p class="eyebrow">THE NEXT CELEBRATION</p>
-                    <h3 id="birthdayTitle">Your next birthday</h3>
-                    <p id="birthdayDate" class="muted"></p>
-                </div>
-                <div class="countdown">
-                    <strong id="birthdayDays">0</strong>
-                    <span id="birthdayLabel">days to go</span>
-                </div>
-            </article>
-
-            <div class="section-title">
-                <div>
-                    <p class="eyebrow">MORE THAN A NUMBER</p>
-                    <h2>Your life in numbers</h2>
-                </div>
-            </div>
-
-            <div class="stats-grid">
-                <article class="stat-card">
-                    <span class="stat-icon purple">◷</span>
-                    <div>
-                        <p>Total days lived</p>
-                        <strong id="totalDays">0</strong>
-                        <span>Days on your timeline</span>
-                    </div>
-                </article>
-
-                <article class="stat-card">
-                    <span class="stat-icon blue">▤</span>
-                    <div>
-                        <p>Total weeks lived</p>
-                        <strong id="totalWeeks">0</strong>
-                        <span>Full weeks completed</span>
-                    </div>
-                </article>
-
-                <article class="stat-card">
-                    <span class="stat-icon teal">◉</span>
-                    <div>
-                        <p>Born on a</p>
-                        <strong id="birthWeekday">—</strong>
-                        <span>Your birth weekday</span>
-                    </div>
-                </article>
-
-                <article class="stat-card">
-                    <span class="stat-icon pink">✧</span>
-                    <div>
-                        <p>Next age milestone</p>
-                        <strong id="milestone">—</strong>
-                        <span id="milestoneDate">Your next chapter</span>
-                    </div>
-                </article>
-            </div>
-
-            <p class="privacy-note">
-                <span aria-hidden="true">✓</span>
-                Calculated locally in your browser. Your birth date is not uploaded.
-            </p>
-        </section>
-
-        <section class="features">
-            <article class="feature">
-                <span>⚡</span>
-                <div>
-                    <h3>Instant results</h3>
-                    <p>Get your age in seconds.</p>
-                </div>
-            </article>
-            <article class="feature">
-                <span>◈</span>
-                <div>
-                    <h3>Works everywhere</h3>
-                    <p>Designed for desktop and mobile.</p>
-                </div>
-            </article>
-            <article class="feature">
-                <span>♧</span>
-                <div>
-                    <h3>Privacy first</h3>
-                    <p>No sign-up or data collection.</p>
-                </div>
-            </article>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>Made with <span>♥</span> by <strong>Joy Rajbongshi</strong></p>
-        <p class="footer-subtitle">Make every moment count.</p>
-    </footer>
+            <p id="result"></p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
+    
 </body>
 </html>
